@@ -4,7 +4,7 @@ import java.util.Random;
 /**
  * @author Kunuk Nykjaer
  */
-public class Qlearning {
+public class Qlearning2 {
     final DecimalFormat df = new DecimalFormat("#.##");
  
     // path finding
@@ -53,7 +53,7 @@ public class Qlearning {
 
     String[] stateNames = new String[] { "A", "B", "C", "D", "E", "F" };
  
-    public Qlearning() {
+    public Qlearning2() {
         init();
     }
  
