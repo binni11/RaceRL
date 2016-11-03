@@ -9,7 +9,8 @@ enum Height {
 enum SkinColor {
     Blue,
     Green,
-    Red
+    Red,
+    Yellow
 }
 enum Ears{
     Pointy,
@@ -18,15 +19,13 @@ enum Ears{
 }
 public class Features {
 
-    Height height;
-    SkinColor skincolor;
-    Ears ears;
+    public Height height;
+    public SkinColor skincolor;
+    public Ears ears;
 
     public Features(Height height, SkinColor skincolor, Ears ears){
         this.height = height;
         this.skincolor = skincolor;
         this.ears = ears;
     }
-
-
 }
