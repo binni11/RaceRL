@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by brynjarolafsson on 03/11/16.
  */
@@ -27,5 +29,14 @@ public class Features {
         this.height = height;
         this.skincolor = skincolor;
         this.ears = ears;
+    }
+
+    public ArrayList<String> getFeatures() {
+        ArrayList<String> featureList = new ArrayList<>();
+        featureList = new ArrayList<>();
+        featureList.add(this.height.toString());
+        featureList.add(this.skincolor.toString());
+        featureList.add(this.ears.toString());
+        return featureList;
     }
 }

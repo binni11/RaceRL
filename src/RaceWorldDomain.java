@@ -144,7 +144,7 @@ public class RaceWorldDomain implements DomainGenerator {
     /**
      * The width of the grid world
      */
-    protected int										width;
+    protected int									    width;
 
     /**
      * The height of grid world

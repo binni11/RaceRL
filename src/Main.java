@@ -88,7 +88,7 @@ public class Main {
         String outputPath = "output/";
 
 
-        example.SarsaLearningExample(outputPath);
+        example.QLearningExample(outputPath);
 
 
         example.Visualize(outputPath);
