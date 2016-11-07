@@ -16,7 +16,7 @@ public class Race {
     public Race(Races race) {
         switch (race) {
             case Orc:
-                features = new Features(Height.Large, SkinColor.Green, Ears.Round);
+                features = new Features(Height.Large, SkinColor.Green, Ears.Pointy);
                 break;
             case Elf:
                 features = new Features(Height.Large, SkinColor.Yellow, Ears.Pointy);
