@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by brynjarolafsson on 03/11/16.
  */
@@ -13,6 +16,11 @@ public class Player {
     }
 
     public static void main(String[] args) {
+
         Player player = new Player("Johnny", Races.Orc);
+
+        System.out.println(player.race.features.getFeatures());
+
     }
+
 }
