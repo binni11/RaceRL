@@ -9,4 +9,5 @@ public class Merchant {
     public int calculateState(Features features, Action action) {
         return 0;
     }
+
 }

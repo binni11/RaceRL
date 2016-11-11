@@ -24,6 +24,10 @@ public class Player {
         playerActions.put("Buy", "3");
 
         System.out.println(player.race.features.getFeatures());
+        System.out.println(playerActions.get("Steal"));
+
+        MerchantMemory newMem = new MerchantMemory(player, PlayerActions.Leave, 30);
+        System.out.println(newMem.toString());
 
     }
 
