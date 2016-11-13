@@ -13,19 +13,25 @@ public class State {
         memoryCollection = new ArrayList<>();
     }
 
-    public void meetPlayer(MerchantMemory memory) {
+    // adjust a players score depending of previous players met with similar attributes.
+    public void meetPlayer(MerchantMemory memory, boolean details) {
 
         if (memoryCollection.isEmpty()) {
             memoryCollection.add(memory);
-            System.out.println("First time meeting");
-            return;
         }
-        if (!memoryCollection.contains(memory)) {
-            System.out.println("I haven't met you before, adding to memory and calculating score");
+        else if (!memoryCollection.contains(memory)) {
+            double score = calculatePlayerScore(memory,false);
+            memory.UpdateScore(score);
             memoryCollection.add(memory);
+            if (details) {
+                System.out.println("I haven't met you before, adding to memory and calculating score");
+                System.out.println("Score is : " + score);
+                listAllMemories();
+                System.out.println("\n");
+            }
         }
         else {
-            System.out.println("I have met you before, looking up score");
+            System.out.println("I have met you before");
         }
     }
 
@@ -35,28 +41,35 @@ public class State {
         }
     }
 
-    public double calculatePlayerScore(MerchantMemory memory) {
+    public double calculatePlayerScore(MerchantMemory memory, boolean details) {
 
         ArrayList<Double> list = new ArrayList<>();
         int counter = 0;
         double contribution = 0;
         double playerScore = 0;
 
-        System.out.println("Comparing this: \n" + memory.toString());
-        System.out.println("To the current list:");
-        listAllMemories();
+        if (details) {
+            System.out.println("\nComparing this: \n" + memory.toString());
+            System.out.println("\nTo the current list:");
+            listAllMemories();
+        }
 
         // iterate the memory list.
         for (int i = 0; i < memoryCollection.size(); i++) {
             counter = 0;
             contribution = 0;
-            System.out.println("Going over memory list item nr: " + i);
+            if (details) {
+                System.out.println("\nGoing over memory list item nr: " + i);
+                System.out.println(memoryCollection.get(i));
+            }
             // iterate the features in the current memory list.
             for (int k = 0; k < memoryCollection.get(i).features.size(); k++) {
                 // compare the new memory to the features in the memory list.
                 for (int l = 0; l < memory.features.size(); l++) {
                     if (memory.features.get(l).equals(memoryCollection.get(i).features.get(k))) {
-                        System.out.println("Found match: " + memory.features.get(l));
+                        if (details) {
+                            System.out.println("Found match: " + memory.features.get(l));
+                        }
                         counter += 1;
                         int size = memoryCollection.get(i).features.size();
                         double score = memoryCollection.get(i).playerScore;
@@ -64,8 +77,10 @@ public class State {
                     }
                 }
             }
-            System.out.println("Found Matches: " + counter + " PlayerScore: " + memoryCollection.get(i).playerScore);
-            System.out.println("Adding to list: " + "i: " + i + " contribution: " + contribution);
+            if (details) {
+                System.out.println("Found Matches: " + counter + " PlayerScore: " + memoryCollection.get(i).playerScore);
+                System.out.println("Calculating contribution: " + contribution + "\n");
+            }
             list.add(i, contribution);
         }
 
@@ -73,7 +88,9 @@ public class State {
             playerScore += list.get(i);
         }
 
-        System.out.println("Resulting playerScore: " + playerScore);
+        if (details) {
+            System.out.println("Resulting playerScore: " + playerScore);
+        }
         return playerScore;
     }
 

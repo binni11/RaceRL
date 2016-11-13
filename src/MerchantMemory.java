@@ -9,12 +9,16 @@ public class MerchantMemory {
 
     public ArrayList<String> features;
     public PlayerActions playerAction;
-    public int playerScore;
+    public double playerScore;
 
-    public MerchantMemory(Player player, PlayerActions actions, int score) {
+    public MerchantMemory(Player player, PlayerActions actions, double score) {
 
         this.features = new ArrayList<>(player.race.features.getFeatures());
         this.playerAction = actions;
+        this.playerScore = score;
+    }
+
+    public void UpdateScore(double score) {
         this.playerScore = score;
     }
 
