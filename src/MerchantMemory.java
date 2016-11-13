@@ -10,12 +10,14 @@ public class MerchantMemory {
     public ArrayList<String> features;
     public PlayerActions playerAction;
     public double playerScore;
+    public Races races;
 
     public MerchantMemory(Player player, PlayerActions actions, double score) {
 
         this.features = new ArrayList<>(player.race.features.getFeatures());
         this.playerAction = actions;
         this.playerScore = score;
+        this.races = player.races;
     }
 
     public void UpdateScore(double score) {
@@ -25,8 +27,6 @@ public class MerchantMemory {
     @Override
     public String toString() {
 
-        return features + " " + playerAction + " " + playerScore;
+        return races + " " + features + " " + playerAction + " " + playerScore;
     }
-
-
 }

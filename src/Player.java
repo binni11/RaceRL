@@ -10,10 +10,12 @@ public class Player {
 
     public String playerName;
     Race race;
+    Races races;
 
     public Player(String playerName,Races races){
         this.playerName = playerName;
         this.race = new Race(races);
+        this.races = races;
     }
 
     public static void main(String[] args) {
@@ -25,10 +27,5 @@ public class Player {
 
         System.out.println(player.race.features.getFeatures());
         System.out.println(playerActions.get("Steal"));
-
-        MerchantMemory newMem = new MerchantMemory(player, PlayerActions.Leave, 30);
-        System.out.println(newMem.toString());
-
     }
-
 }

@@ -27,6 +27,5 @@ public class Testing {
         state.meetPlayer(newMem4, true);
         state.meetPlayer(newMem5, true);
 
-
     }
 }
